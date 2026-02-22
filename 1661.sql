@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+SELECT A.machine_id, ROUND(SUM(A.timestamp-B.timestamp)/COUNT(*),3) AS processing_time FROM Activity A JOIN Activity B ON ((A.machine_id=B.machine_id) AND (A.process_id=B.process_id)) WHERE A.activity_type = 'end' AND B.activity_type = 'start' GROUP BY machine_id;
